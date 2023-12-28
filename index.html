@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Proyecto final sobre CRUD de películas del curso Programación web impartido por Ministerio de Trabajo, Empleo y Seguridad Social en conjunto con UTN-FRT "
+    />
+    <meta name="keywords" content="CRUD, películas, registro, gestión, base de datos, administración, catálogo, cine, películas online, plataforma de streaming, películas digitales, base de datos de películas" />
+    <meta name="author" content="Bruno Madozzo Romay" />
+    <title>CRUD DE PELÍCULAS | PROYECTO FINAL</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./CSS/estilos.css" />
+  </head>
+  <body class="bg-light">
+    <header class="fixed-top">
+      <nav class="bgNav py-4 text-center">
+        <a href="index.html" class="fs-4">Administración</a>
+      </nav>
+    </header>
+    <main class="py-5">
+      <section class="container py-5">
+          <div class="row">
+            <div class="col-12">
+              <h1 class="display-1 text-center text-dark rounded pt-5">
+                Películas
+              </h1>
+            </div>
+          </div>
+          <div class="row ">
+            <div class="col-12 mb-5">
+              <form action="#table" class="needs-validation border rounded-2 shadow px-sm-4 pt-5 pb-4 mx-1 mx-sm-0 row mx-md-auto" novalidate>
+                <h2 class="text-center">Registro de películas</h2>
+                <div class="mb-3">
+                  <label class="form-label mt-2" for="nombre" id="labelNombre"
+                    >Ingrese el nombre de la película:</label
+                  >
+                  <input
+                    class="form-control"
+                    id="nombre"
+                    type="text"
+                    placeholder="Nombre"
+                    minlength="2"
+                    maxlength="50"
+                    required
+                  />
+                  <div class="invalid-feedback">*campo obligatorio</div>
+                  <div class="valid-feedback"></div>
+                </div>
+                <div class="mb-3">
+                  <label
+                    class="form-label mt-1"
+                    for="descripcion"
+                    id="labelDescripcion"
+                    >Ingrese la descripción:</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="descripcion"
+                    type="text"
+                    rows="4"
+                    cols="50"
+                    placeholder="Descripción"
+                    minlength="5"
+                    maxlength="500"
+                    required
+                  ></textarea>
+                  <div class="invalid-feedback">*campo obligatorio</div>
+                  <div class="valid-feedback"></div>
+                </div>
+                <div class="mb-3 col-md-5">
+                  <label
+                    class="form-label mt-1"
+                    for="estreno"
+                    id="labelEstreno"
+                    >Ingrese la fecha de estreno:</label
+                  >
+                  <input
+                    class="form-control"
+                    id="estreno"
+                    type="date"
+                    required
+                  />
+                  <div class="invalid-feedback">*campo obligatorio</div>
+                  <div class="valid-feedback"></div>
+                </div>
+                <div class="mb-3 col-md-7">
+                  <label
+                    class="form-label mt-1"
+                    for="portada"
+                    id="labelPortada"
+                    >Ingrese la URL de la portada:</label
+                  >
+                  <input
+                    class="form-control"
+                    id="portada"
+                    type="url"
+                    placeholder="URL de la imagen"
+                    required
+                  />
+                  <div class="invalid-feedback">*campo obligatorio</div>
+                  <div class="valid-feedback"></div>
+                </div>
+                <div class="w-100 mt-3">
+                  <button
+                  class="btn btn-primary w-100 fw-bold fs-5"
+                  id="btnRegistro"
+                >
+                  REGISTRAR
+                </button>
+                </div> 
+                <div class="w-100">
+                  <button
+                  class="btn btn-success w-100 mt-2 mb-2 fw-bold fs-5"
+                  id="btnGuardar"
+                  type="submit"
+                >
+                  GUARDAR CAMBIOS
+                </button>
+                </div>           
+                <div class="w-100">
+                  <button
+                  class="btn btn-secondary w-100 mb-5 fw-bold fs-5"
+                  id="btnCancelar"
+                >
+                  CANCELAR
+                </button>
+                </div>                             
+                <div class="container-img">
+                  <img src="" alt="" id="portada" hidden />
+                </div>
+                <div class="w-100">
+                  <button
+                  class="btn btn-secondary w-100 mt-2 mb-5 fw-bold fs-5"
+                  id="btnOcultar"
+                  hidden="true"
+                >
+                  CERRAR
+                </button>
+                </div>
+              </form>                      
+            </div>
+            <div class="col-12">
+              <h2 class="text-center">Lista de películas registradas</h2>
+              <div id="lista" class="table-responsive h-100 mt-2 ms-lg-2"></div>
+            </div>
+          </div>
+      </section>
+    </main>
+    <footer class="bg-dark text-light py-3">
+      <p class="text-center">@Realizado por Bruno Madozzo Romay. 2022</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./JS/app.js"></script>
+  </body>
+</html>
